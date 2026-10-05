@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<!--
+    Todo o nosso site começa dentro da tag <html>.
+    lang="pt-BR" informa ao navegador que o conteúdo está em português.
+-->
+<html lang="pt-BR">
+
+<head>
+
+    <!-- Permite usar acentos, ç e outros caracteres corretamente -->
+    <meta charset="UTF-8">
+
+    <!-- Faz o site funcionar melhor em celulares e tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Nome exibido na aba do navegador -->
+    <title>Caça aos Mitos | Verificação de Fatos</title>
+
+    <!--
+        Conecta o HTML ao nosso arquivo CSS.
+
+        IMPORTANTE:
+        O arquivo style.css deve estar na mesma pasta
+        do arquivo index.html.
+    -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO DO SITE
+         ===================================================== -->
+
+    <header class="cabecalho">
+
+        <!-- Pequena etiqueta acima do título -->
+        <p class="etiqueta">
+            🔎 OPERAÇÃO: CAÇA AOS BOATOS
+        </p>
+
+
+        <!--
+            h1 representa o título principal da página.
+        -->
+        <h1>
+
+            MITO
+
+            <!--
+                span permite estilizar apenas uma parte do texto.
+            -->
+            <span>OU</span>
+
+            VERDADE?
+
+        </h1>
+
+
+        <!-- Texto de apresentação -->
+        <p class="subtitulo">
+
+            Nem tudo que circula pelos corredores da escola é verdade.
+
+            <br>
+
+            Bora investigar antes de compartilhar?
+
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <!--
+            Esta section guarda os três cards.
+
+            No CSS, a classe "cards"
+            utiliza FLEXBOX para organizar os elementos.
+        -->
+
+        <section class="cards">
+
+
+            <!-- =====================================================
+                 CARD 1
+                 BARULHOS MISTERIOSOS
+                 ===================================================== -->
+
+            <article class="card">
+
+
+                <!-- Número decorativo -->
+                <p class="numero">
+                    01
+                </p>
+
+
+                <!-- Emoji usado como ícone -->
+                <div class="icone">
+                    👻
+                </div>
+
+
+                <!-- Categoria do caso -->
+                <p class="categoria">
+                    ARQUIVO PARANORMAL
+                </p>
+
+
+                <!-- Pergunta principal -->
+                <h2>
+
+                    Os barulhos estranhos da escola à noite
+                    são de uma antiga professora?
+
+                </h2>
+
+
+                <!-- Resultado da investigação -->
+                <p class="resultado mito">
+
+                    ❌ MITO
+
+                </p>
+
+
+                <!-- Explicação -->
+                <p class="descricao">
+
+                    Diz a lenda que, depois que todo mundo vai embora,
+                    passos, portas e objetos começam a fazer barulho
+                    pelos corredores da escola.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Algumas versões da história dizem que seria
+                    uma antiga professora procurando a turma que
+                    ainda não entregou a atividade.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Mas nossa investigação encontrou explicações
+                    bem menos sobrenaturais: vento, portas,
+                    estrutura do prédio e alguns animais
+                    passeando pela escola.
+
+                </p>
+
+
+                <!-- Pequeno rodapé do card -->
+                <p class="fonte">
+
+                    🔎 Veredito: nenhuma professora fantasma encontrada até agora.
+
+                </p>
+
+            </article>
+
+
+
+            <!-- =====================================================
+                 CARD 2
+                 COMPUTADOR QUE LIGA SOZINHO
+                 ===================================================== -->
+
+            <article class="card destaque">
+
+
+                <p class="numero">
+                    02
+                </p>
+
+
+                <div class="icone">
+                    💻
+                </div>
+
+
+                <p class="categoria">
+                    TECNOLOGIA PARANORMAL
+                </p>
+
+
+                <h2>
+
+                    O computador da sala de informática
+                    realmente liga sozinho?
+
+                </h2>
+
+
+                <!--
+                    Neste caso usamos a classe "verdade",
+                    porque o computador pode realmente ligar
+                    automaticamente.
+                -->
+                <p class="resultado verdade">
+
+                    ✅ VERDADE*
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Sim. Alguns computadores realmente podem
+                    ligar aparentemente "sozinhos".
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Mas antes de chamar um exorcista especializado
+                    em Windows, vale verificar configurações de
+                    inicialização automática, atualizações,
+                    energia ou tarefas programadas.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Portanto, o computador pode até ligar sozinho...
+
+                    <strong>
+                        mas o fantasma ainda não foi localizado.
+                    </strong>
+
+                </p>
+
+
+                <p class="fonte">
+
+                    🔎 Veredito: tecnologia 1 × 0 atividade paranormal.
+
+                </p>
+
+            </article>
+
+
+
+            <!-- =====================================================
+                 CARD 3
+                 SAÚDE MENTAL DOS PROFESSORES
+                 ===================================================== -->
+
+            <article class="card">
+
+
+                <p class="numero">
+                    03
+                </p>
+
+
+                <div class="icone">
+                    🧠
+                </div>
+
+
+                <p class="categoria">
+                    CASO EXTREMAMENTE SUSPEITO
+                </p>
+
+
+                <h2>
+
+                    É verdade que professores possuem saúde mental?
+
+                </h2>
+
+
+                <p class="resultado mito">
+
+                    ❌ MITO
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Após semanas de investigação, reuniões,
+                    plataformas, relatórios, provas, correções
+                    e alunos perguntando
+
+                    <strong>
+                        "Professor, isso vale nota?"
+                    </strong>,
+
+                    não encontramos evidências conclusivas.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    Pesquisadores suspeitam que aquilo que mantém
+                    os professores funcionando seja uma combinação
+                    misteriosa de café, memes, férias e
+                    feriados prolongados.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    A investigação continua.
+
+                </p>
+
+
+                <p class="fonte">
+
+                    🔎 Fonte: professores sobreviventes do último fechamento de notas.
+
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MENSAGEM FINAL
+             ===================================================== -->
+
+        <section class="mensagem-final">
+
+
+            <p class="mini-titulo">
+
+                🧠 REGRA DE OURO
+
+            </p>
+
+
+            <h2>
+
+                Antes de acreditar,
+
+                <br>
+
+                <span>
+                    investigue.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Pergunte quem publicou, procure evidências,
+                compare informações e confira a fonte.
+
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
+    <footer>
+
+
+        <p>
+
+            🕵️ Projeto de Verificação de Fatos
+            • Desenvolvimento WEB
+
+        </p>
+
+
+    </footer>
+
+
+</body>
+
+</html>

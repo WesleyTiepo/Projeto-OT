@@ -1,0 +1,762 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+
+/*
+  O símbolo * seleciona TODOS os elementos da página.
+
+  box-sizing: border-box faz com que padding e borda
+  sejam considerados no tamanho total dos elementos.
+*/
+* {
+    box-sizing: border-box;
+}
+
+
+/*
+  Configuração do BODY.
+
+  O body representa todo o conteúdo visível da página.
+*/
+body {
+
+    /* Remove a margem padrão do navegador */
+    margin: 0;
+
+    /* Define uma fonte simples e moderna */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Cor padrão dos textos */
+    color: white;
+
+    /* Impede que elementos decorativos criem barra lateral */
+    overflow-x: hidden;
+
+    /* Altura mínima igual à tela inteira */
+    min-height: 100vh;
+
+    /*
+      Criamos um degradê com várias cores.
+
+      Essas cores foram escolhidas para criar
+      uma atmosfera neon tropical:
+      roxo, rosa, azul e laranja.
+    */
+    background: linear-gradient(
+        -45deg,
+        #16002e,
+        #4d007d,
+        #ff1688,
+        #ff5c35,
+        #00c8ff
+    );
+
+    /*
+      Deixa o fundo maior que a tela.
+
+      Isso será usado na animação.
+    */
+    background-size: 400% 400%;
+
+    /*
+      Executa a animação chamada "fundoAnimado".
+
+      15s = duração
+      ease = movimento suave
+      infinite = repete infinitamente
+    */
+    animation: fundoAnimado 15s ease infinite;
+
+    /* Necessário para posicionarmos efeitos decorativos */
+    position: relative;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DO FUNDO
+   ========================================================= */
+
+
+/*
+  @keyframes cria uma animação.
+
+  Aqui alteramos lentamente a posição do degradê.
+*/
+@keyframes fundoAnimado {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================================================
+   EFEITOS DE LUZ NO FUNDO
+   ========================================================= */
+
+
+/*
+  ::before cria um elemento visual sem precisarmos
+  adicioná-lo no HTML.
+*/
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    /*
+      border-radius: 50%
+      transforma o quadrado em um círculo.
+    */
+    border-radius: 50%;
+
+    background: rgba(255, 0, 170, 0.25);
+
+    /*
+      blur cria o efeito de luz desfocada.
+    */
+    filter: blur(100px);
+
+    top: -150px;
+    left: -100px;
+
+    /*
+      pointer-events: none evita que o elemento
+      atrapalhe os cliques do usuário.
+    */
+    pointer-events: none;
+}
+
+
+/*
+  Segundo círculo luminoso.
+*/
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 225, 255, 0.22);
+
+    filter: blur(100px);
+
+    bottom: -150px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+
+    /*
+      max-width impede que o conteúdo fique
+      exageradamente largo em telas grandes.
+    */
+    max-width: 1200px;
+
+    /* Centraliza horizontalmente */
+    margin: auto;
+
+    /*
+      padding cria espaço interno.
+      Primeiro valor: cima/baixo
+      Segundo valor: esquerda/direita
+    */
+    padding: 80px 25px 50px;
+
+    text-align: center;
+
+    position: relative;
+
+    /*
+      z-index faz o conteúdo ficar acima
+      dos efeitos luminosos.
+    */
+    z-index: 1;
+}
+
+
+/* Pequena etiqueta */
+.etiqueta {
+
+    display: inline-block;
+
+    background-color: rgba(0, 0, 0, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+/* Título principal */
+.cabecalho h1 {
+
+    font-size: clamp(48px, 9vw, 110px);
+
+    margin: 20px 0 10px;
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    /*
+      text-shadow cria brilho atrás do texto.
+    */
+    text-shadow:
+        0 0 20px rgba(255, 0, 153, 0.7),
+        0 0 40px rgba(0, 213, 255, 0.3);
+}
+
+
+/*
+  Estilizamos somente a palavra OU.
+*/
+.cabecalho h1 span {
+
+    color: #00f7ff;
+
+    font-size: 0.45em;
+
+    /*
+      display: block faz o elemento
+      ocupar uma linha inteira.
+    */
+    display: block;
+
+    letter-spacing: 10px;
+
+    margin: 15px 0;
+}
+
+
+/* Texto abaixo do título */
+.subtitulo {
+
+    max-width: 680px;
+
+    margin: 25px auto 0;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================================
+   ÁREA DOS CARDS
+   ========================================================= */
+
+.cards {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 30px 25px 80px;
+
+    /*
+      FLEXBOX
+
+      display: flex transforma esta section
+      em um container Flexbox.
+    */
+    display: flex;
+
+    /*
+      Cria espaço entre os cards.
+    */
+    gap: 25px;
+
+    /*
+      Faz os cards quebrarem de linha
+      quando não houver espaço.
+    */
+    flex-wrap: wrap;
+
+    /*
+      Centraliza os itens.
+    */
+    justify-content: center;
+
+    /*
+      Alinha os elementos verticalmente.
+    */
+    align-items: stretch;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CARDS INDIVIDUAIS
+   ========================================================= */
+
+.card {
+
+    /*
+      flex define como cada card ocupa o espaço.
+
+      1 = pode crescer
+      1 = pode diminuir
+      300px = tamanho inicial
+    */
+    flex: 1 1 300px;
+
+    max-width: 370px;
+
+    min-height: 470px;
+
+    padding: 30px;
+
+    /*
+      Fundo preto transparente.
+    */
+    background: rgba(13, 5, 35, 0.70);
+
+    /*
+      backdrop-filter desfoca o fundo
+      atrás do card.
+    */
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    /*
+      transition faz mudanças acontecerem
+      suavemente.
+    */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border 0.3s ease;
+}
+
+
+/*
+  Efeito quando o mouse passa sobre o card.
+*/
+.card:hover {
+
+    /*
+      Move o card 12 pixels para cima.
+    */
+    transform: translateY(-12px);
+
+    border-color: rgba(255, 255, 255, 0.50);
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(255, 0, 153, 0.30);
+}
+
+
+/* =========================================================
+   FAIXA COLORIDA NO CARD
+   ========================================================= */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 5px;
+
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(
+        90deg,
+        #ff1493,
+        #ff7139,
+        #00efff
+    );
+}
+
+
+/* =========================================================
+   NÚMERO DO CARD
+   ========================================================= */
+
+.numero {
+
+    position: absolute;
+
+    top: 10px;
+    right: 25px;
+
+    margin: 0;
+
+    font-size: 70px;
+
+    font-weight: 900;
+
+    color: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   ÍCONE
+   ========================================================= */
+
+.icone {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    /*
+      Aplicamos uma pequena animação
+      ao ícone.
+    */
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+
+/*
+  Faz o ícone subir e descer suavemente.
+*/
+@keyframes flutuar {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   CATEGORIA
+   ========================================================= */
+
+.categoria {
+
+    color: #00efff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   TÍTULO DOS CARDS
+   ========================================================= */
+
+.card h2 {
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    margin: 10px 0 20px;
+}
+
+
+/* =========================================================
+   RESULTADOS
+   ========================================================= */
+
+.resultado {
+
+    /*
+      inline-block faz o elemento ocupar
+      somente o espaço necessário.
+    */
+    display: inline-block;
+
+    padding: 9px 14px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+/* Cor usada nos resultados classificados como MITO */
+.mito {
+
+    background-color: rgba(255, 35, 122, 0.18);
+
+    color: #ff73bc;
+
+    border: 1px solid #ff3c9e;
+}
+
+
+/* Cor usada nos resultados classificados como VERDADE */
+.verdade {
+
+    background-color: rgba(0, 255, 218, 0.15);
+
+    color: #55ffe6;
+
+    border: 1px solid #00e8ca;
+}
+
+
+/* =========================================================
+   TEXTO DOS CARDS
+   ========================================================= */
+
+.descricao {
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FONTE DA VERIFICAÇÃO
+   ========================================================= */
+
+.fonte {
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   CARD CENTRAL
+   ========================================================= */
+
+
+/*
+  Adicionamos uma classe especial ao card central.
+*/
+.card.destaque {
+
+    background: linear-gradient(
+        160deg,
+        rgba(255, 20, 147, 0.25),
+        rgba(40, 5, 80, 0.85)
+    );
+
+    border-color: rgba(255, 118, 193, 0.45);
+}
+
+
+/* =========================================================
+   MENSAGEM FINAL
+   ========================================================= */
+
+.mensagem-final {
+
+    max-width: 950px;
+
+    margin: 20px auto 100px;
+
+    padding: 65px 30px;
+
+    text-align: center;
+
+    background: rgba(9, 3, 28, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(18px);
+
+    position: relative;
+
+    z-index: 1;
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.30);
+}
+
+
+.mini-titulo {
+
+    color: #00efff;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+
+    font-size: 12px;
+}
+
+
+.mensagem-final h2 {
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    margin: 15px 0;
+
+    line-height: 1;
+}
+
+
+.mensagem-final h2 span {
+
+    color: #ff4dad;
+
+    text-shadow: 0 0 20px rgba(255, 0, 153, 0.45);
+}
+
+
+.mensagem-final > p:last-child {
+
+    max-width: 580px;
+
+    margin: 25px auto 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.25);
+
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+
+/*
+  @media aplica estilos específicos quando
+  a tela possui até 768 pixels de largura.
+
+  Isso normalmente inclui celulares e tablets pequenos.
+*/
+@media (max-width: 768px) {
+
+    .cabecalho {
+
+        padding-top: 55px;
+    }
+
+
+    .cabecalho h1 {
+
+        letter-spacing: -2px;
+    }
+
+
+    .cards {
+
+        /*
+          Mudamos a direção do Flexbox.
+
+          Em vez de ficarem lado a lado,
+          os cards ficam um abaixo do outro.
+        */
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .card {
+
+        width: 100%;
+
+        max-width: 500px;
+
+        min-height: auto;
+    }
+
+
+    .mensagem-final {
+
+        margin-left: 20px;
+        margin-right: 20px;
+
+        padding: 45px 20px;
+    }
+
+}
